@@ -12,7 +12,6 @@
             </li>
         </ul>
     </div>
-    <a href="/login_prueba/logout" class="btn btn-danger">Cerrar sesión</a>
 </nav>
 <br>
 <h5>Seguimiento de Organizacion de Usuarios</h5>

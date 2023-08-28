@@ -23,7 +23,7 @@ const datatable = new Datatable('#tablaUsuario', {
     data : null,
     columns: [
         {
-            title : 'NO',
+            title : 'No.',
             render : () => contador ++
             
         },
@@ -154,7 +154,10 @@ const traeDatos = (e) => {
     const button = e.target;
     const id = button.dataset.id
     const nombre = button.dataset.nombre
-    const nit = button.dataset.nit
+    const catalogo = button.dataset.catalogo
+    const password = button.dataset.password
+    const rol = button.dataset.rol
+    const situacion = button.dataset.situacion
 
     const dataset = {
         id, 

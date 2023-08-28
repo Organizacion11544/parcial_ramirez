@@ -4,6 +4,7 @@ namespace Controllers;
 
 use Exception;
 use Model\Detalle;
+use Model\Usuario;
 use MVC\Router;
 
 class DetalleController
@@ -20,7 +21,7 @@ class DetalleController
     public static function detalleUsuarioAPI()
     {
 
-        $sql = "SELECT * FROM usuario WHERE usu_situacion = 'ACTIVO'; ";
+        $sql = "SELECT * FROM usuario ";
 
         try {
 

@@ -4,6 +4,15 @@ import { Toast } from "../funciones";
 const canvasUsuariosPorRol = document.getElementById('chartUsuariosPorRol');
 const contextUsuariosPorRol = canvasUsuariosPorRol.getContext('2d');
 
+const getRandomColor = () => {
+    const r = Math.floor(Math.random() * 256);
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
+
+    const rgbColor = `rgba(${r},${g},${b},0.7)`;
+    return rgbColor;
+};
+
 const chartUsuariosPorRol = new Chart(contextUsuariosPorRol, {
     type: 'bar',
     data: {
@@ -31,7 +40,7 @@ const chartUsuariosPorRol = new Chart(contextUsuariosPorRol, {
 });
 
 const getEstadisticasUsuariosPorRol = async () => {
-    const url = `/parcial_ramirez/usuario/estadistica`;
+    const url = `/parcial_ramirez/API/usuario/estadistica`;
     const config = {
         method: 'GET'
     };
@@ -41,26 +50,32 @@ const getEstadisticasUsuariosPorRol = async () => {
         const data = await respuesta.json();
         console.log(data);
 
-        chartUsuariosPorRol.data.labels = [];
-        chartUsuariosPorRol.data.datasets[0].data = [];
-        chartUsuariosPorRol.data.datasets[0].backgroundColor = [];
+        const usuariosPorRol = {};
 
         if (data) {
             data.forEach(registro => {
-                chartUsuariosPorRol.data.labels.push(registro.usu_rol);
-                chartUsuariosPorRol.data.datasets[0].data.push(1); // Cada usuario es 1 parte
-                chartUsuariosPorRol.data.datasets[0].backgroundColor.push(getRandomColor());
+                const rol = registro.usu_rol;
+                if (usuariosPorRol[rol]) {
+                    usuariosPorRol[rol]++;
+                } else {
+                    usuariosPorRol[rol] = 1;
+                }
             });
 
-            // Actualizar el título para mostrar la cantidad de usuarios por rol
-            chartUsuariosPorRol.options.plugins.title.text = `Usuarios por Rol - ${data.length} Usuarios`;
+            const labels = Object.keys(usuariosPorRol);
+            const dataCounts = Object.values(usuariosPorRol);
+
+            chartUsuariosPorRol.data.labels = labels;
+            chartUsuariosPorRol.data.datasets[0].data = dataCounts;
+            chartUsuariosPorRol.data.datasets[0].backgroundColor = labels.map(() => getRandomColor());
+
+            chartUsuariosPorRol.options.plugins.title.text = `Usuarios por Rol - Total: ${data.length} Usuarios`;
         } else {
             Toast.fire({
                 title: 'No se encontraron registros',
                 icon: 'info'
             });
 
-            // Restaurar el título si no hay datos
             chartUsuariosPorRol.options.plugins.title.text = 'Distribución de Usuarios por Rol';
         }
 
@@ -102,7 +117,7 @@ const chartUsuariosPorSituacion = new Chart(contextUsuariosPorSituacion, {
 });
 
 const getEstadisticasUsuariosPorSituacion = async () => {
-    const url = `/parcial_ramirez/usuario/estadistica`;
+    const url = `/parcial_ramirez/API/usuario/estadistica`;
     const config = {
         method: 'GET'
     };
@@ -112,26 +127,32 @@ const getEstadisticasUsuariosPorSituacion = async () => {
         const data = await respuesta.json();
         console.log(data);
 
-        chartUsuariosPorSituacion.data.labels = [];
-        chartUsuariosPorSituacion.data.datasets[0].data = [];
-        chartUsuariosPorSituacion.data.datasets[0].backgroundColor = [];
+        const usuariosPorSituacion = {};
 
         if (data) {
             data.forEach(registro => {
-                chartUsuariosPorSituacion.data.labels.push(registro.usu_situacion);
-                chartUsuariosPorSituacion.data.datasets[0].data.push(1); // Cada usuario es 1 parte
-                chartUsuariosPorSituacion.data.datasets[0].backgroundColor.push(getRandomColor());
+                const situacion = registro.usu_situacion;
+                if (usuariosPorSituacion[situacion]) {
+                    usuariosPorSituacion[situacion]++;
+                } else {
+                    usuariosPorSituacion[situacion] = 1;
+                }
             });
 
-            // Actualizar el título para mostrar la cantidad de usuarios por situación
-            chartUsuariosPorSituacion.options.plugins.title.text = `Usuarios por Situación - ${data.length} Usuarios`;
+            const labels = Object.keys(usuariosPorSituacion);
+            const dataCounts = Object.values(usuariosPorSituacion);
+
+            chartUsuariosPorSituacion.data.labels = labels;
+            chartUsuariosPorSituacion.data.datasets[0].data = dataCounts;
+            chartUsuariosPorSituacion.data.datasets[0].backgroundColor = labels.map(() => getRandomColor());
+
+            chartUsuariosPorSituacion.options.plugins.title.text = `Usuarios por Situación - Total: ${data.length} Usuarios`;
         } else {
             Toast.fire({
                 title: 'No se encontraron registros',
                 icon: 'info'
             });
 
-            // Restaurar el título si no hay datos
             chartUsuariosPorSituacion.options.plugins.title.text = 'Distribución de Usuarios por Situación';
         }
 
