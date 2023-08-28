@@ -17,10 +17,10 @@ class DetalleController
         }
     }
 
-    public static function detalleClientesAPI()
+    public static function detalleUsuarioAPI()
     {
 
-        $sql = "SELECT * FROM usuario WHERE usu_situacion ='ACTIVO'; ";
+        $sql = "SELECT * FROM usuario WHERE usu_situacion = 'ACTIVO'; ";
 
         try {
 

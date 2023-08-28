@@ -52,7 +52,7 @@ class UsuarioController{
         $usu_catalogo = $_GET['usu_catalogo'];
        
 
-        $sql = "SELECT * FROM usuario where usu_situacion = 1 ";
+        $sql = "SELECT * FROM usuario where usu_situacion = 'ACTIVO' ";
         if ($usu_nombre != '') {
             $sql .= " and usu_nombre like '%$usu_nombre%' ";
         }

@@ -131,7 +131,7 @@ class ActiveRecord {
 
     // Eliminar un registro - Toma el ID de Active Record
     public function eliminar() {
-        $query = "UPDATE "  . static::$tabla . " SET situacion = 0 WHERE id = " . self::$db->quote($this->id);
+        $query = "UPDATE "  . static::$tabla . " SET situacion = INACTIVO WHERE id = " . self::$db->quote($this->id);
         $resultado = self::$db->exec($query);
         return $resultado;
     }
