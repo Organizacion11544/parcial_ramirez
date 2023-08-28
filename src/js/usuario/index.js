@@ -36,13 +36,14 @@ const datatable = new Datatable('#tablaUsuario', {
             data: 'usu_catalogo',
         },
         {
+            title : 'CONTRASEÑA',
+            data: 'usu_password',
+        },        
+        {
             title : 'ROL',
             data: 'usu_rol',
         },
-        {
-            title : 'CONTRASEÑA',
-            data: 'usu_password',
-        },
+
         {
             title : 'SITUACION',
             data: 'usu_situacion',
