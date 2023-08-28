@@ -80,7 +80,7 @@ const buscar = async () => {
         const respuesta = await fetch(url, config)
         const data = await respuesta.json();
 
-        console.log(data);
+        //console.log(data);
         datatable.clear().draw()
         if(data){
             contador = 1;
@@ -107,8 +107,10 @@ const guardar = async (evento) => {
         return;
     }
 
+    
     const body = new FormData(formulario);
     body.delete('usu_id');
+
     const url = '/parcial_ramirez/API/usuario/guardar';
     const headers = new Headers();
     headers.append("X-Requested-With", "fetch");
@@ -116,7 +118,6 @@ const guardar = async (evento) => {
         method: 'POST',
         body
     };
-
     try {
         const respuesta = await fetch(url, config);
         const data = await respuesta.json();
@@ -234,7 +235,7 @@ const modificar = async () => {
         
             case 0:
                 icon = 'error'
-                console.log(detalle)
+                //console.log(detalle)
                 break;
         
             default:
@@ -247,7 +248,7 @@ const modificar = async () => {
         })
 
     } catch (error) {
-        console.log(error);
+        //console.log(error);
     }
 }
 
@@ -306,10 +307,6 @@ const eliminar = async (e) => {
 
 }
 
-
-
-
-
 const cancelarAccion = () => {
     btnGuardar.disabled = false
     btnGuardar.parentElement.style.display = ''
@@ -322,12 +319,7 @@ const cancelarAccion = () => {
     //divTabla.style.display = ''
 }
 
-
 buscar();
-
-
-
-
 
 formulario.addEventListener('submit', guardar)
 btnBuscar.addEventListener('click', buscar)
@@ -336,5 +328,3 @@ btnModificar.addEventListener('click', modificar)
 //datatable.on('click','.btn-warning', colocarDatos )
 datatable.on('click','.btn-warning', traeDatos )
 datatable.on('click','.btn-danger', eliminar )
-
-

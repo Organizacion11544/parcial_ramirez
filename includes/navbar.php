@@ -12,5 +12,5 @@
             </li>
         </ul>
     </div>
-    <a href="/login_prueba/" class="btn btn-danger">Inicio</a>
+
 </nav>

@@ -81,7 +81,7 @@ class UsuarioController{
      
         try {
             $usuario = new Usuario($_POST);
-            // $resultado = $producto->crear();
+            // $resultado = $usuario->crear();
 
             $resultado = $usuario -> actualizar();
 
@@ -96,7 +96,7 @@ class UsuarioController{
                     'codigo' => 0
                 ]);
             }
-            // echo json_encode($resultado);
+        echo json_encode($resultado);
         } catch (Exception $e) {
             echo json_encode([
                 'detalle' => $e->getMessage(),
@@ -112,7 +112,7 @@ class UsuarioController{
         try {
             $usu_id = $_POST['usu_id'];
             $usuario=  Usuario::find($usu_id);
-            $usuario ->usu_situacion = INACTIVO;
+            $usuario ->usu_situacion = 'INACTIVO';
             $resultado = $usuario ->actualizar();
 
             if ($resultado['resultado'] == 1) {

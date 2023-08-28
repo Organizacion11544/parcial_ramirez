@@ -46,3 +46,4 @@ export const confirmacion = async (icon = 'warning', text = '¿Esta seguro que d
     const resultado = (await alerta).isConfirmed
     return resultado;
 }
+

@@ -21,7 +21,7 @@
         <div class="row mb-3">
             <div class="col">
                 <label for="usu_nombre">Ingrese Nombre Completo del Usuario</label>
-                <input type="text" name="usu_nombre" id="usu_nombre" class="form-control">
+                <input type="text" name="usu_nombre" id="usu_nombre" class="form-control" autocomplete="username">
             </div>
         </div>
         <div class="row mb-3">
@@ -33,15 +33,35 @@
         <div class="row mb-3">
             <div class="col">
                 <label for="usu_password">Ingrese la Contraseña</label>
-                <input type="password" name="usu_password" id="usu_password" class="form-control">
+                <input type="password" name="usu_password" id="usu_password" class="form-control" autocomplete="current-password">
             </div>
         </div>
+        <div class="row mb-3">
+    <div class="col">
+        <label for="usu_rol">Seleccione el Rol</label>
+        <select name="usu_rol" id="usu_rol" class="form-control">
+            <option value="ADMINISTRADOR">ADMINISTRADOR</option>
+            <option value="VENDEDOR">VENDEDOR</option>
+            <option value="CLIENTE" selected>CLIENTE</option>
+        </select>
+    </div>
+</div>
+<div class="row mb-3">
+    <div class="col">
+        <label for="usu_situacion">Seleccione la Situación</label>
+        <select name="usu_situacion" id="usu_situacion" class="form-control">
+            <option value="ACTIVO">ACTIVO</option>
+            <option value="INACTIVO">INACTIVO</option>
+            <option value="PENDIENTE" selected>PENDIENTE</option>
+        </select>
+    </div>
+</div>
         <div class="row mb-3">
             <div class="col">
                 <button type="submit" form="formularioUsuario" id="btnGuardar" data-saludo="hola" data-saludo2="hola2" class="btn btn-primary w-100">Guardar</button>
             </div>
             <div class="col">
-                <button type="button" id="btnModificar" class="btn btn-warning w-100">Modificar</button>
+                <button type="button" id="btnModificar"  name="btnModificar" class="btn btn-warning w-100">Modificar</button>
             </div>
             <div class="col">
                 <button type="button" id="btnBuscar" class="btn btn-info w-100">Buscar</button>
