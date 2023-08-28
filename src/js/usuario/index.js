@@ -36,14 +36,13 @@ const datatable = new Datatable('#tablaUsuario', {
             data: 'usu_catalogo',
         },
         {
-            title : 'CONTRASEÑA',
-            data: 'usu_password',
-        },        
-        {
             title : 'ROL',
             data: 'usu_rol',
         },
-
+        {
+            title : 'CONTRASEÑA',
+            data: 'usu_password',
+        },
         {
             title : 'SITUACION',
             data: 'usu_situacion',
@@ -236,7 +235,7 @@ const modificar = async () => {
         
             case 0:
                 icon = 'error'
-                //console.log(detalle)
+                console.log(detalle)
                 break;
         
             default:
@@ -249,7 +248,7 @@ const modificar = async () => {
         })
 
     } catch (error) {
-        //console.log(error);
+        console.log(error);
     }
 }
 
