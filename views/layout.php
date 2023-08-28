@@ -24,10 +24,10 @@
                 
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="margin: 0;">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="/parcial_ramirez/usuarios"><i class="bi bi-person-plus-fill me-2"></i>Administracion de Usuarios</a>
+                        <a class="nav-link" aria-current="page" href="/parcial_ramirez/usuario"><i class="bi bi-person-plus-fill me-2"></i>Administracion de Usuarios</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="/parcial_ramirez/usuarios/estadisticas"><i class="bi bi-graph-up me-2"></i>Estadisticas</a>
+                        <a class="nav-link" aria-current="page" href="/parcial_ramirez/usuario/estadistica"><i class="bi bi-graph-up me-2"></i>Estadisticas</a>
                     </li>
                 </ul> 
                 <div class="col-lg-1 d-grid mb-lg-0 mb-2">
